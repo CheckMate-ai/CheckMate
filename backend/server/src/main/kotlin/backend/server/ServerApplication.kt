@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
+import backend.server.googleAPI.GoogleAPI
+
 @SpringBootApplication
 class ServerApplication
 
@@ -17,5 +19,16 @@ fun main(args: Array<String>) {
 @RestController
 class MessageController {
     @GetMapping("/")
-    fun index(@RequestParam("name") name: String) = "Hello, $name!"
+    fun index(@RequestParam("name") name: String)= "Hello, $name!"
+}
+
+@RestController
+class SearchController {
+
+    val googleSearchService = GoogleAPI()
+
+    @GetMapping("/search")
+    fun search(@RequestParam query: String): List<String> {
+        return googleSearchService.getGoogleLinks(query)
+    }
 }
