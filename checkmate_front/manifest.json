@@ -3,12 +3,20 @@
   "description": "A browser extension made with Svelte Kit.",
   "version": "1.0.0",
   "manifest_version": 3,
+  "background": {
+    "service_worker": "./src/background.ts"
+  },
   "permissions": [
-    "storage"
+    "storage", "contextMenus"
   ],
+  "icons": {
+    "16": "public/icon-tiny.png",
+    "48": "public/icon-small.png",
+    "128": "public/icon-large.png"
+  },
   "action": {
     "default_title": "CheckMate",
-    "default_icon": "public/favicon.png",
+    "default_icon": "public/icon-large.png",
     "default_popup": "src/popup/index.html"
   }
 }

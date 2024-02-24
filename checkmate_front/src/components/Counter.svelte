@@ -1,29 +1,24 @@
 <script lang="ts">
+  import { onDestroy, onMount } from "svelte";
+
   export let count: number;
   let message: string | null = null;
+  let information: string | null = null
 
   const increment = () => (count += 1);
   const decrement = () => (count -= 1);
 
-  const handleSave = () => {
-    chrome.storage.sync.set({ count }).then(() => {
-      message = "Updated!";
-
-      setTimeout(() => {
-        message = null;
-      }, 2000);
-    });
-  };
+  onMount(async () => {
+    const info  = await chrome.storage.local.get();
+    information = info.message
+  })
 </script>
 
 <div>
   <p>
-    Current count: {count}
+    {information!= null ? "Texte sélectionné : " : "Vous n'avez rien sélectionné"}
   </p>
   <div>
-    <button on:click={decrement}>-</button>
-    <button on:click={increment}>+</button>
-    <button on:click={handleSave}>Save</button>
-    {#if message}<span>{message}</span>{/if}
+    {#if information}<span>{information}</span>{/if}
   </div>
 </div>
