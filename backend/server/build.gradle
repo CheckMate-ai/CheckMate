@@ -22,7 +22,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
 	implementation 'org.jetbrains.kotlin:kotlin-reflect'
-	 implementation 'org.jsoup:jsoup:1.14.3'
+	implementation 'com.google.apis:google-api-services-customsearch:v1-rev20240103-2.0.0'
+	 implementation 'com.google.api-client:google-api-client:1.31.1'
+	implementation 'io.github.cdimascio:dotenv-kotlin:6.4.1'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
