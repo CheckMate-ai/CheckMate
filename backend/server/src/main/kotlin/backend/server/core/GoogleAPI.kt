@@ -10,11 +10,6 @@ import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
 class GoogleAPI {
-        init {
-
-                print("HERE")
-        }
-
         val CUSTOM_SEARCH_API_KEY: String =
                         URLEncoder.encode(
                                         Dotenv.load()["CUSTOM_SEARCH_API_KEY"],
