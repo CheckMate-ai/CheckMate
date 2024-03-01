@@ -1,13 +1,11 @@
-import Counter from '../components/Counter.svelte';
+import App from '../App.svelte'
 
 const target: HTMLElement | null = document.getElementById('app');
 
 async function render() {
-  const { count } = await chrome.storage.sync.get({ count: 0 });
-
-  if(target){
-    new Counter({ target, props: { count } });
-  }
-}
+  new App({
+    target: document.getElementById('app') as HTMLElement,
+  }) 
+} 
 
 document.addEventListener('DOMContentLoaded', render);
