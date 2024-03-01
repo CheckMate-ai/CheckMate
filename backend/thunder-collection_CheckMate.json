@@ -1,0 +1,69 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "CheckMate",
+    "dateExported": "2024-03-01T13:20:47.855Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "f5160e51-7a12-46c1-9765-0cb48df54f00",
+            "colId": "89a45953-1958-4762-9286-2ff3906417d2",
+            "containerId": "",
+            "name": "ask",
+            "url": "http://localhost:8080/keyword?question=Kilian Mbappe the best football player in the world will sign for Manchester United in the summer of 2024",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-03-01T11:00:38.952Z",
+            "modified": "2024-03-01T11:33:49.716Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "question",
+                    "value": "Kilian Mbappe the best football player in the world will sign for Manchester United in the summer of 2024",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "afe56321-a2a7-4800-9994-a77124c71153",
+            "colId": "89a45953-1958-4762-9286-2ff3906417d2",
+            "containerId": "",
+            "name": "ask cerfia",
+            "url": "http://localhost:8080/keyword?question=🇬🇧☪️ FLASH | À l'approche du #Ramadan, mois sacré pour les musulmans, la ville de #Londres a décoré la célèbre avenue d'Oxford.",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-01T13:16:10.169Z",
+            "modified": "2024-03-01T13:16:47.840Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "question",
+                    "value": "🇬🇧☪️ FLASH | À l'approche du #Ramadan, mois sacré pour les musulmans, la ville de #Londres a décoré la célèbre avenue d'Oxford.",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "4633a066-48aa-4901-8097-be828ccce636",
+            "colId": "89a45953-1958-4762-9286-2ff3906417d2",
+            "containerId": "",
+            "name": "ask cerfia2",
+            "url": "http://localhost:8080/keyword?question=🏴󠁧󠁢󠁳󠁣󠁴󠁿🍫 Un \"parc à thème\" à la Willy Wonka, à 41€ l'entrée en #Écosse, a fait pleurer plusieurs enfants. Au lieu des cannes à sucre géantes et des rivières de chocolat, les visiteurs ont découvert un entrepôt à moitié vide. Certains ont même appelé la police.",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-03-01T13:17:24.320Z",
+            "modified": "2024-03-01T13:17:35.450Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "question",
+                    "value": "🏴󠁧󠁢󠁳󠁣󠁴󠁿🍫 Un \"parc à thème\" à la Willy Wonka, à 41€ l'entrée en #Écosse, a fait pleurer plusieurs enfants. Au lieu des cannes à sucre géantes et des rivières de chocolat, les visiteurs ont découvert un entrepôt à moitié vide. Certains ont même appelé la police.",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        }
+    ]
+}
