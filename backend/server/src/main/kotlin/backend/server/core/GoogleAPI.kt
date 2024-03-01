@@ -1,4 +1,4 @@
-package backend.server.googleAPI
+package backend.server.core
 
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport
 import com.google.api.client.http.HttpTransport
@@ -9,7 +9,11 @@ import io.github.cdimascio.dotenv.Dotenv
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
-class GoogleAPI() {
+class GoogleAPI {
+        init {
+
+                print("HERE")
+        }
 
         val CUSTOM_SEARCH_API_KEY: String =
                         URLEncoder.encode(
@@ -18,7 +22,7 @@ class GoogleAPI() {
                         )
         val CUSTOM_SEARCH_CX: String =
                         URLEncoder.encode(
-                                        Dotenv.load()["CUSTOM_SEARCH_CX"],
+                                        Dotenv.load()["CHECK_MATE_CUSTOM_SEARCH_CX"],
                                         StandardCharsets.UTF_8.toString()
                         )
         val transport: HttpTransport = GoogleNetHttpTransport.newTrustedTransport()
