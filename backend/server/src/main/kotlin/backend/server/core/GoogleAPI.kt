@@ -8,6 +8,7 @@ import com.google.api.services.customsearch.v1.CustomSearchAPI
 import io.github.cdimascio.dotenv.Dotenv
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
+import org.json.JSONObject
 
 class GoogleAPI {
         val CUSTOM_SEARCH_API_KEY: String =
@@ -37,5 +38,17 @@ class GoogleAPI {
                 val list = customSearchAPI.setQ(keywords).execute().items
                 val result = list.map { it.link }
                 return result
+        }
+
+        fun getSources(keywords: JSONObject): JSONObject {
+                val keywordList = keywords.getJSONArray("result")
+                val query = keywordList.joinToString(separator = "+")
+                val list = customSearchAPI.setQ(query).execute().items
+                if (list == null) {
+                        return JSONObject().put("sources", "No sources found")
+                }
+                val result = list.map { it.link }
+                println("GoogleAPI: $result")
+                return JSONObject().put("sources", result)
         }
 }
