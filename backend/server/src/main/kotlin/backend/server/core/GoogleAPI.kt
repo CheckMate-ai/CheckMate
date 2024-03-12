@@ -48,7 +48,6 @@ class GoogleAPI {
                         return JSONObject().put("sources", "No sources found")
                 }
                 val result = list.map { it.link }
-                println("GoogleAPI: $result")
                 return JSONObject().put("sources", result)
         }
 }
