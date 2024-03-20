@@ -51,9 +51,10 @@ class GoogleAPI {
                     "Dec" to "DECEMBER"
             )
 
-    fun getGoogleLinks(query: String): String {
-        val keywords = query.split(",").joinToString(separator = "+")
-        val safeSearch = safeCustomSearchAPI.setQ(keywords).execute()
+    fun getGoogleSources(keywords: JSONObject): JSONObject {
+        val keywordList = keywords.getJSONArray("result")
+        val query = keywordList.joinToString(separator = "+")
+        val safeSearch = safeCustomSearchAPI.setQ(query).execute()
         val list: MutableList<Result>? =
                 when {
                     safeSearch.isNullOrEmpty() -> null
@@ -63,10 +64,10 @@ class GoogleAPI {
         if (list != null) {
             response = createResponseJson(list, true)
         } else {
-            response = createResponseJson(unsafeCustomSearchAPI.setQ(keywords).execute().items, false)
+            response =
+                    createResponseJson(unsafeCustomSearchAPI.setQ(query).execute().items, false)
         }
-
-        return response.toString()
+        return JSONObject().put("sources", response)
     }
 
     fun createResponseJson(resultList: MutableList<Result>, isSafe: Boolean): List<JSONObject> {
