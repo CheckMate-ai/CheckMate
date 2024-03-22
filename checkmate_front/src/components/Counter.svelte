@@ -1,13 +1,9 @@
 <script lang="ts">
-  import { onDestroy, onMount } from "svelte";
+  import { onMount } from "svelte";
 
-  export let count: number;
   let message: string | null = null;
-  let information: string | null = null
-
-  const increment = () => (count += 1);
-  const decrement = () => (count -= 1);
-
+  let information: string | null = null;
+  
   onMount(async () => {
     const info  = await chrome.storage.local.get();
     information = info.message
