@@ -64,8 +64,7 @@ class GoogleAPI {
         if (list != null) {
             response = createResponseJson(list, true)
         } else {
-            response =
-                    createResponseJson(unsafeCustomSearchAPI.setQ(query).execute().items, false)
+            response = createResponseJson(unsafeCustomSearchAPI.setQ(query).execute().items, false)
         }
         return JSONObject().put("sources", response)
     }
@@ -74,16 +73,21 @@ class GoogleAPI {
         var id = 0
         return resultList.map {
             val computedPagemap = computePagemap(JSONObject(it.pagemap))
+            val websiteInfos = getWebsiteInfos(it.displayLink, it.link, computedPagemap.second)
             JSONObject()
                     .put("id", id++)
-                    .put("link", it.link)
                     .put("title", it.title)
                     .put("article_snippet", it.snippet)
                     .put("image_preview_link", computedPagemap.first)
                     .put("safe", isSafe)
                     .put("date", parseDate(it.snippet))
-                    .put("website", computedPagemap.second)
+                    .put("website", websiteInfos)
         }
+    }
+
+    fun getWebsiteInfos(displayLink: String, link: String, websiteName: String): JSONObject {
+        val favicon = "https://www.google.com/s2/favicons?domain=" + displayLink
+        return JSONObject().put("link", link).put("name", websiteName).put("favicon_link", favicon)
     }
 
     fun computePagemap(pagemapJson: JSONObject): Pair<String, String> {
