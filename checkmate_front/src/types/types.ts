@@ -4,15 +4,15 @@ interface VerifyRequest {
   input: string
 }
 
-interface SourceWebsite{
+interface Website{
   favicon_link: string
   name: string
+  link: string
 }
 
 interface Source {
   id: string
-  website: SourceWebsite,
-  link: string
+  website: Website,
   title: string,
   article_snippet: string,
   image_preview_link: string,
@@ -30,6 +30,7 @@ type Message = Source | TextualMessage
 
 interface Conversation {
   title: string
+  origin: Website,
   messages: Message[]
   request_id: number
   created_at: Date
