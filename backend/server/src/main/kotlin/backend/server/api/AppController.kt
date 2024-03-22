@@ -14,6 +14,7 @@ class AppController {
     @GetMapping("/getSources")
     fun ask(@RequestParam question: String): String {
         val keywords = keywordAI.getKeyword(question)
+        println("Keywords: $keywords")
         val linksJson = googleSearchService.getGoogleSources(keywords)
         linksJson.put("question", question)
         linksJson.put("keywords", keywords)

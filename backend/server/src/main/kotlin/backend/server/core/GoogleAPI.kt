@@ -54,6 +54,7 @@ class GoogleAPI {
     fun getGoogleSources(keywords: JSONObject): JSONObject {
         val keywordList = keywords.getJSONArray("result")
         val query = keywordList.joinToString(separator = "+")
+        println("Query: $query  DONE")
         val safeSearch = safeCustomSearchAPI.setQ(query).execute()
         val list: MutableList<Result>? =
                 when {
