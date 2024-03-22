@@ -1,14 +1,33 @@
-<script>
-  import { Router, Route } from "svelte-routing";
+<script lang="ts">
   import Welcome from "./pages/Welcome.svelte";
-  import Counter from "./components/Counter.svelte"
+  import "./styles/welcome.css";
+  import Home from "./pages/Home.svelte";
+  import { onMount } from "svelte";
+  import { onboarded } from "./stores";
 
-  export let url = `${window.location}/`;
+  let showHome: boolean;
+
+  onMount(async () => await chrome.storage.local.set({ onboarded: false }));
+  let promise = (async () => {
+    let res = await chrome.storage.local.get({ onboarded: false });
+    onboarded.set(res.onboarded);
+  })();
+
+  onboarded.subscribe((value) => {
+    showHome = value;
+  });
 </script>
 
-<Router {url}>
-  <div>
-    <Route path={url+"/home"} component={Counter} />
-    <Route path={url+"/"}><Welcome baseUrl={url}/></Route>
-  </div>
-</Router>
+<header>
+  <img src="../../public/icon.svg" width="32" alt="" srcset="" />
+  <h2>CheckMate</h2>
+</header>
+<div>
+  {#await promise then isOnboarded}
+    {#if showHome}
+      <Home />
+    {:else}
+      <Welcome />
+    {/if}
+  {/await}
+</div>
