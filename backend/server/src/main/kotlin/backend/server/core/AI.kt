@@ -16,7 +16,8 @@ val DefaultModel = "mistralai/Mixtral-8x7B-Instruct-v0.1"
 
 fun sanitize(text: String): String {
         val r = Regex("[^\\w\\d\\s.,!?;:'\"\\(\\)\\-–—\\/\\\\%$€£¥@&*+=\\[\\]{}<>`~^:]+")
-        return text.replace(r, "").trim()
+        val singleSpace = Regex("\\s+")
+        return text.replace(r, "").trim().replace(singleSpace, " ")
 }
 
 fun sendAndReceive(prompt: String, model: String): String {
