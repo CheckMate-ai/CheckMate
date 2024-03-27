@@ -1,8 +1,9 @@
 package backend.server.api
 
-import backend.server.AI.AdviceAI
+import backend.server.AI.FactCheckerAI
 import backend.server.AI.KeyWordAI
 import backend.server.core.GoogleAPI
+import org.json.JSONObject
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -10,8 +11,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class AIController {
     val keywordAI = KeyWordAI()
-    val adviceAI = AdviceAI()
-    val googleSearchService = GoogleAPI()
+    val FactCheckerAI = FactCheckerAI()
 
     @GetMapping("/keyword")
     fun ask(@RequestParam question: String): String {
@@ -19,11 +19,7 @@ class AIController {
     }
 
     @GetMapping("/advice")
-    fun advice(@RequestParam question: String): String {
-        val keywords = keywordAI.getKeyword(question)
-        val linksJson = googleSearchService.getGoogleSources(keywords)
-        linksJson.put("question", question)
-        linksJson.put("keywords", keywords)
-        return linksJson.toString()
+    fun advice(@RequestParam sources: List<String>, @RequestParam question: String): String {
+        return FactCheckerAI.getCheck(sources, question).toString()
     }
 }
