@@ -1,40 +1,82 @@
 {
     "client": "Thunder Client",
     "collectionName": "CheckMate",
-    "dateExported": "2024-03-20T09:49:57.800Z",
+    "dateExported": "2024-03-27T10:12:03.470Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "30320ecb-76e8-4f41-bc72-7a891c4f0a31",
-            "colId": "b85dfa1b-9554-49cf-97fc-63b9e6b8f4b8",
+            "_id": "f5160e51-7a12-46c1-9765-0cb48df54f00",
+            "colId": "89a45953-1958-4762-9286-2ff3906417d2",
             "containerId": "",
-            "name": "ask",
-            "url": "http://localhost:8080/keyword?question=Kilian Mbappe the best football player in the world will sign for Manchester United in the summer of 2024",
+            "name": "getKeywords",
+            "url": "http://localhost:8080/keyword?question=Kilian Mbappe the best football player in the world will sign for Manchester United in 2024",
             "method": "GET",
             "sortNum": 10000,
-            "created": "2024-03-20T09:46:33.937Z",
-            "modified": "2024-03-20T09:46:33.937Z",
+            "created": "2024-03-01T11:00:38.952Z",
+            "modified": "2024-03-22T10:17:44.105Z",
             "headers": [],
             "params": [
                 {
                     "name": "question",
-                    "value": "Kilian Mbappe the best football player in the world will sign for Manchester United in the summer of 2024",
+                    "value": "Kilian Mbappe the best football player in the world will sign for Manchester United in 2024",
+                    "isPath": false
+                }
+            ],
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "dc9cce5e-e0ba-4fa2-87f3-17308acc4278",
+            "colId": "89a45953-1958-4762-9286-2ff3906417d2",
+            "containerId": "",
+            "name": "sources",
+            "url": "http://localhost:8080/getSources?question=Kilian Mbappe, le meilleur joueur de football au monde, signera à Manchester United à l'été 2024",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2024-03-08T11:00:36.693Z",
+            "modified": "2024-03-08T11:22:23.925Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "question",
+                    "value": "Kilian Mbappe, le meilleur joueur de football au monde, signera à Manchester United à l'été 2024",
+                    "isPath": false
+                }
+            ],
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "0faefc29-53f4-4dee-a330-e0c8ae5f5a8e",
+            "colId": "89a45953-1958-4762-9286-2ff3906417d2",
+            "containerId": "",
+            "name": "fullTest",
+            "url": "http://localhost:8080/getAdvice?question=Kilian Mbappe, le meilleur joueur de football au monde, signera à Manchester United à l'été 2024",
+            "method": "GET",
+            "sortNum": 17500,
+            "created": "2024-03-27T10:11:07.617Z",
+            "modified": "2024-03-27T10:11:34.971Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "question",
+                    "value": "Kilian Mbappe, le meilleur joueur de football au monde, signera à Manchester United à l'été 2024",
                     "isPath": false
                 }
             ],
             "tests": []
         },
         {
-            "_id": "1aba28f7-9ba4-4f6a-b934-5c5195551be7",
-            "colId": "b85dfa1b-9554-49cf-97fc-63b9e6b8f4b8",
+            "_id": "afe56321-a2a7-4800-9994-a77124c71153",
+            "colId": "89a45953-1958-4762-9286-2ff3906417d2",
             "containerId": "",
             "name": "ask cerfia",
-            "url": "http://localhost:8080/keyword?question=🇬🇧☪️ FLASH | À l'approche du #Ramadan, mois sacré pour les musulmans, la ville de #Londres a décoré la célèbre avenue d'Oxford.",
+            "url": "http://localhost:8080/getSources?question=🇬🇧☪️ FLASH | À l'approche du #Ramadan, mois sacré pour les musulmans, la ville de #Londres a décoré la célèbre avenue d'Oxford.",
             "method": "GET",
             "sortNum": 20000,
-            "created": "2024-03-20T09:46:33.938Z",
-            "modified": "2024-03-20T09:46:33.938Z",
+            "created": "2024-03-01T13:16:10.169Z",
+            "modified": "2024-03-08T11:24:59.660Z",
             "headers": [],
             "params": [
                 {
@@ -43,47 +85,73 @@
                     "isPath": false
                 }
             ],
+            "reqType": "get",
             "tests": []
         },
         {
-            "_id": "adfdca60-e948-4929-b724-9496f754b70d",
-            "colId": "b85dfa1b-9554-49cf-97fc-63b9e6b8f4b8",
+            "_id": "4633a066-48aa-4901-8097-be828ccce636",
+            "colId": "89a45953-1958-4762-9286-2ff3906417d2",
             "containerId": "",
             "name": "ask cerfia2",
-            "url": "http://localhost:8080/keyword?question=🏴󠁧󠁢󠁳󠁣󠁴󠁿🍫 Un \"parc à thème\" à la Willy Wonka, à 41€ l'entrée en #Écosse, a fait pleurer plusieurs enfants. Au lieu des cannes à sucre géantes et des rivières de chocolat, les visiteurs ont découvert un entrepôt à moitié vide. Certains ont même appelé la police.",
+            "url": "http://localhost:8080/getSources?question=Un parc à thème à la Willy Wonka, à 41€ l'entrée en #Écosse, a fait pleurer plusieurs enfants. Au lieu des cannes à sucre géantes et des rivières de chocolat, les visiteurs ont découvert un entrepôt à moitié vide. Certains ont même appelé la police.",
             "method": "GET",
             "sortNum": 30000,
-            "created": "2024-03-20T09:46:33.939Z",
-            "modified": "2024-03-20T09:46:33.939Z",
+            "created": "2024-03-01T13:17:24.320Z",
+            "modified": "2024-03-08T11:34:37.810Z",
             "headers": [],
             "params": [
                 {
                     "name": "question",
-                    "value": "🏴󠁧󠁢󠁳󠁣󠁴󠁿🍫 Un \"parc à thème\" à la Willy Wonka, à 41€ l'entrée en #Écosse, a fait pleurer plusieurs enfants. Au lieu des cannes à sucre géantes et des rivières de chocolat, les visiteurs ont découvert un entrepôt à moitié vide. Certains ont même appelé la police.",
-                    "isPath": false
-                }
-            ],
-            "tests": []
-        },
-        {
-            "_id": "0927c114-e5b8-4c6c-9daf-6ee2f86330de",
-            "colId": "b85dfa1b-9554-49cf-97fc-63b9e6b8f4b8",
-            "containerId": "",
-            "name": "get sources",
-            "url": "http://localhost:8080/getSources?question=Kilian Mbappe the best football player in the world will sign for Manchester United in the summer of 2024",
-            "method": "GET",
-            "sortNum": 40000,
-            "created": "2024-03-20T09:47:25.357Z",
-            "modified": "2024-03-20T09:48:10.243Z",
-            "headers": [],
-            "params": [
-                {
-                    "name": "question",
-                    "value": "Kilian Mbappe the best football player in the world will sign for Manchester United in the summer of 2024",
+                    "value": "Un parc à thème à la Willy Wonka, à 41€ l'entrée en #Écosse, a fait pleurer plusieurs enfants. Au lieu des cannes à sucre géantes et des rivières de chocolat, les visiteurs ont découvert un entrepôt à moitié vide. Certains ont même appelé la police.",
                     "isPath": false
                 }
             ],
             "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "f20dac8d-cd4a-4caa-8314-e3f57c7f0501",
+            "colId": "89a45953-1958-4762-9286-2ff3906417d2",
+            "containerId": "",
+            "name": "getAdvice",
+            "url": "http://localhost:8080/advice?question=Un parc à thème à la Willy Wonka, à 41€ l'entrée en #Écosse, a fait pleurer plusieurs enfants. Au lieu des cannes à sucre géantes et des rivières de chocolat, les visiteurs ont découvert un entrepôt à moitié vide. Certains ont même appelé la police.",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-03-22T14:34:06.792Z",
+            "modified": "2024-03-22T14:34:21.478Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "question",
+                    "value": "Un parc à thème à la Willy Wonka, à 41€ l'entrée en #Écosse, a fait pleurer plusieurs enfants. Au lieu des cannes à sucre géantes et des rivières de chocolat, les visiteurs ont découvert un entrepôt à moitié vide. Certains ont même appelé la police.",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "0b023dd9-baba-494c-b442-9fad1b3522f6",
+            "colId": "89a45953-1958-4762-9286-2ff3906417d2",
+            "containerId": "",
+            "name": "advice",
+            "url": "http://localhost:8080/advice?sources=Mbappe Signed To Manchester United&question=Kilian Mbappe, le meilleur joueur de football au monde, signera à Manchester United à l'été 2024",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-03-27T08:47:57.529Z",
+            "modified": "2024-03-27T09:24:33.445Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "sources",
+                    "value": "Mbappe Signed To Manchester United",
+                    "isPath": false
+                },
+                {
+                    "name": "question",
+                    "value": "Kilian Mbappe, le meilleur joueur de football au monde, signera à Manchester United à l'été 2024",
+                    "isPath": false
+                }
+            ],
             "tests": []
         }
     ]
