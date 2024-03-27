@@ -12,7 +12,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if(info.menuItemId.toString().startsWith("checking-")){
     await chrome.storage.local.set({ message: info.selectionText})
     chrome.windows.create({
-      url:"./src/popup/index.html", 
+      url:"./src/popup/checking.html", 
       type: "popup",
       top: 150,
       left: 1200,
