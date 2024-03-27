@@ -4,34 +4,38 @@ interface VerifyRequest {
   input: string
 }
 
-interface Website{
+interface IWebsite{
   favicon_link: string
   name: string
   link: string
 }
 
-interface Source {
+interface ISource {
   id: string
-  website: Website,
+  website: IWebsite,
   title: string,
   article_snippet: string,
   image_preview_link: string,
   safe: boolean
-  date: Date
+  date?: Date
 }
 
-interface TextualMessage {
+interface ITextualMessage {
   content: string
   from: "User" | "AI"
-  created_at: Date
+  created_at?: Date
 }
 
-type Message = Source | TextualMessage
+type Message = ISource | ITextualMessage
+type Trust = "Doubtful" | "Fake" | "Seems Legit"
 
-interface Conversation {
+interface IConversation {
   title: string
-  origin: Website,
+  origin: IWebsite
+  trust: Trust
   messages: Message[]
   request_id: number
   created_at: Date
 }
+
+export type {IConversation, ISource, IWebsite, VerifyRequest}

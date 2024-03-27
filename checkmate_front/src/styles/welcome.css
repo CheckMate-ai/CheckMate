@@ -1,8 +1,13 @@
 body{
   margin: 0;
+  max-height: 600px;
+  overflow-y: hidden;
 }
 
 header{
+  position: fixed;
+  width: 100%;
+  background-color: white;
   padding: 0rem 0.75rem;
   display: flex;
   flex-direction: row;
@@ -12,7 +17,11 @@ header{
 
 main{
   padding: 0.6rem 1rem;
-  padding-top: 3.2rem;
+  padding-top: 5rem;
+  height: 512px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 main h1{
@@ -24,6 +33,7 @@ main h1{
 section{
   display: flex;
   flex-direction: column;
+  
 }
 
 section span{
@@ -74,4 +84,67 @@ button{
 
 button:hover{
   background-color: #205d86;
+}
+
+.conv-list{
+  max-height: 450px;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  overflow: scroll;
+  padding-bottom: 1rem;
+  flex: 1 0 auto;
+}
+
+.bubble {
+  --r: 25px; /* the radius */
+  --t: 10px; /* the size of the tail */
+  max-width: 100%;
+  padding: calc(2*var(--r)/3);
+  -webkit-mask: 
+    radial-gradient(var(--t) at var(--_d) 0,#0000 98%,#000 102%) 
+      var(--_d) 100%/calc(100% - var(--r)) var(--t) no-repeat,
+    conic-gradient(at var(--r) var(--r),#000 75%,#0000 0) 
+      calc(var(--r)/-2) calc(var(--r)/-2) padding-box, 
+    radial-gradient(50% 50%,#000 98%,#0000 101%) 
+      0 0/var(--r) var(--r) space padding-box;
+  background: green;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.left {
+  font-family: monospace;
+  --_d: 0%;
+  border-left: var(--t) solid #0000;
+  margin-right: var(--t);
+  place-self: start;
+  background: #3498db;
+}
+.right {
+  --_d: 100%;
+  border-right: var(--t) solid #0000;
+  margin-left: var(--t);
+  place-self: end;
+}
+
+.type {
+  color:#0000;
+  background:
+    linear-gradient(-90deg,#fff 5px,#0000 0) 10px 0,
+    linear-gradient(#fff 0 0) 0 0;
+  background-size:calc(var(--n)*1ch) 200%;
+  -webkit-background-clip:padding-box,text;
+  background-clip:padding-box,text;
+  background-repeat:no-repeat;
+  animation: 
+   b .05s infinite steps(1),   
+   t calc(var(--n)*.02s) steps(var(--n)) forwards;
+}
+
+@keyframes t{
+  from {background-size:0 200%}
+}
+@keyframes b{
+  50% {background-position:0 -100%,0 0}
 }
