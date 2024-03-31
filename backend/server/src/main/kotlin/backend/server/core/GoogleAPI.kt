@@ -51,9 +51,9 @@ class GoogleAPI {
                     "Dec" to "DECEMBER"
             )
 
-    fun getGoogleSources(keywords: JSONObject): JSONObject {
-        val keywordList = keywords.getJSONArray("result")
-        val query = keywordList.joinToString(separator = "+")
+    fun getGoogleSources(keywords: List<String>): JSONObject {
+        val query = keywords.joinToString(" ")
+        println("Query: $query")
         val safeSearch = safeCustomSearchAPI.setQ(query).execute()
         val list: MutableList<Result>? =
                 when {
