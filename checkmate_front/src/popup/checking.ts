@@ -1,9 +1,9 @@
-import Checking from '../pages/Checking.svelte'
+import Asking from '../Asking.svelte'
 
 const target: HTMLElement | null = document.getElementById('app');
 
 async function render() {
-  new Checking({
+  new Asking({
     target: document.getElementById('app') as HTMLElement,
   }) 
 } 

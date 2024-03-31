@@ -27,6 +27,7 @@ article p {
   color: #7f8c8d;
 }
 span.title{
+  margin-top: 5px;
   font-size: 1rem;
   font-weight: 500;
 }
@@ -34,12 +35,8 @@ span.title{
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  margin: 0;
-}
-
-.link span{
-  max-width: 90%;
-  margin-bottom: 5px;
+  margin: 10px 0px;
+  justify-content: space-between;
 }
 
 article p{

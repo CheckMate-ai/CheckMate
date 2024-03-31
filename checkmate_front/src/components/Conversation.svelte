@@ -1,39 +1,66 @@
 <script lang="ts">
-  import type { IConversation } from "src/types/types";
-  import "./conversation.css"
+  import { type IConversation } from "../types/types";
+  import "./conversation.css";
   import dayjs from "dayjs";
-  import relativeTime from 'dayjs/plugin/relativeTime'
+  import relativeTime from "dayjs/plugin/relativeTime";
   export let convo: IConversation;
+  export let detail_view: boolean;
   import { conversation_details } from "../stores";
+  import Source from "./Source.svelte";
 
-  dayjs.extend(relativeTime)
+  dayjs.extend(relativeTime);
   const labelToIcon = {
-    "Seems Legit": "legit.svg",
-    "Doubtful": "doubt.svg",
-    "Fake": "falsy.svg",
-  }
+    Legit: "legit.svg",
+    Doubtful: "doubt.svg",
+    Fake: "falsy.svg",
+  };
   const labelToColor = {
-    "Seems Legit": "#2ecc71",
-    "Doubtful": "#f1c40f",
-    "Fake": "#e74c3c",
-  }
+    Legit: "#2ecc71",
+    Doubtful: "#f1c40f",
+    Fake: "#e74c3c",
+  };
 </script>
-<div class="card">
-  <div class="checking">
-    <img src={`../../public/${labelToIcon[convo.trust]}`} width="32" alt="">
-    <span style={`color: ${labelToColor[convo.trust]};`}><b><center>{convo.trust}</center></b></span>
-  </div>
-  <div>
-    <h2>
-      {convo.title.length <= 55 ? convo.title : convo.title.substring(0, 55) + "..."}
-    </h2>
-    <div class="origin">
-      <img src={convo.origin.favicon_link} alt="" width="26" height="26">
-      <a href={convo.origin.link} target="_blank">{convo.origin.name}</a>
-      <p>{dayjs(convo.created_at).fromNow()}</p>
+
+{#if !detail_view}
+  <div class="card">
+    <div class="checking">
+      <img src={`../../public/${labelToIcon[convo.trust]}`} width="32" alt="" />
+      <span style={`color: ${labelToColor[convo.trust]};`}
+        ><b><center>{convo.trust}</center></b></span
+      >
     </div>
+    <div>
+      <h2>
+        {convo.title.length <= 55
+          ? convo.title
+          : convo.title.substring(0, 55) + "..."}
+      </h2>
+      <div class="origin">
+        <img src={convo.origin.favicon_link} alt="" width="26" height="26" />
+        <a href={convo.origin.link} target="_blank">{convo.origin.name}</a>
+        <p>{dayjs(convo.created_at).fromNow()}</p>
+      </div>
+    </div>
+    <button
+      class="open-details"
+      on:click={(e) => conversation_details.set(convo)}
+    >
+      <img src="../../public/open.svg" width="13" alt="" />
+    </button>
   </div>
-  <button class="open-details" on:click={(e) => conversation_details.set(convo)}>
-    <img src="../../public/open.svg" width="13" alt="">
-  </button>
-</div>
+{:else}
+  <div class="conv-list">
+    {#each convo.messages as message}
+      {#if "article_snippet" in message}
+        <Source source={message} />
+      {:else}
+        <div class={`bubble ${message.from == "User" ? "right" : "left"}`}>
+          <span
+            class={`${message.from == "User" ? "" : "type"}`}
+            style={`--n:${message.content.length}`}>{message.content}</span
+          >
+        </div>
+      {/if}
+    {/each}
+  </div>
+{/if}

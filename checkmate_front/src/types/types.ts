@@ -27,7 +27,12 @@ interface ITextualMessage {
 }
 
 type Message = ISource | ITextualMessage
-type Trust = "Doubtful" | "Fake" | "Seems Legit"
+enum Trust {
+  Doubtful = "Doubtful", 
+  Fake = "Fake", 
+  Legit = "Legit"
+}
+
 
 interface IConversation {
   title: string
@@ -38,4 +43,5 @@ interface IConversation {
   created_at: Date
 }
 
-export type {IConversation, ISource, IWebsite, VerifyRequest}
+export type {IConversation, ISource, IWebsite, VerifyRequest, Message}
+export {Trust}
