@@ -68,14 +68,17 @@
   <main>
     <section>
       <h1>Historique</h1>
+      <div
+        class="howto"
+        style="display: flex; margin-bottom: 1rem; align-items: space-between;"
+      >
+        <img src="../../public/animation.gif" width="84" alt="" srcset="" />
+        <span style="color: black;"> Surligner du texte et lancer la vérification.</span>
+      </div>
     </section>
-    <!-- <div class="howto" style="display: flex; padding-bottom: 1rem; align-items: space-between;">
-    <img src="../../public/animation.gif" width="84" alt="" srcset="" />
-    <span>Vous n'avez aucune recherche d'informations.... Surligner du texte et lancer la vérification.</span>
-  </div> -->
     <div class="conv-list">
       {#await promise_history}
-        Loading...
+        <img src="../../public/loading.gif" style="align-self: center;" alt="" width="96" srcset="" />
       {:then history}
         {#each history as convo}
           <Conversation {convo} detail_view={false} />

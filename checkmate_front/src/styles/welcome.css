@@ -94,6 +94,7 @@ button:hover{
   overflow: scroll;
   padding-bottom: 1rem;
   flex: 1 0 auto;
+  align-items: center;
 }
 
 .bubble {

@@ -3,6 +3,7 @@ a.article{
   font-size: 0.8rem;
   color: inherit;
   margin: 0px 10px;
+  max-width: 95%;
   border: 1px solid #95a5a6;
   border-radius: 7.5px;
   cursor: pointer;

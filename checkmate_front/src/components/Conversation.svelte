@@ -19,6 +19,9 @@
     Doubtful: "#f1c40f",
     Fake: "#e74c3c",
   };
+
+  const SNIPPET_MAX_LENGTH = 110;
+  const LINK_MAX_LENGTH = 48;
 </script>
 
 {#if !detail_view}
@@ -31,14 +34,16 @@
     </div>
     <div>
       <h2>
-        {convo.title.length <= 55
+        {convo.title.length <= 27
           ? convo.title
-          : convo.title.substring(0, 55) + "..."}
+          : convo.title.substring(0, 24) + "..."}
       </h2>
       <div class="origin">
         <img src={convo.origin.favicon_link} alt="" width="26" height="26" />
-        <a href={convo.origin.link} target="_blank">{convo.origin.name}</a>
-        <p>{dayjs(convo.created_at).fromNow()}</p>
+        <a href={convo.origin.link} target="_blank">{convo.origin.name.length <= 18
+          ? convo.origin.name
+          : convo.origin.name.substring(0, 17) + "..."}</a>
+        <p>{dayjs(convo.request_id).fromNow()}</p>
       </div>
     </div>
     <button

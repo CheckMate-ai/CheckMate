@@ -101,17 +101,13 @@
     console.log(info.message);
     console.log(JSON.parse(info.origin));
     let req = await fetch(
-      "http://localhost:8080/getSources?question=" + info.message
-    );
-    const sources = await req.json();
-    req = await fetch(
       "http://localhost:8080/getAdvice?question=" + info.message
     );
     const response = await req.json();
-    /*     const response = example_response;
-    const sources = example_sources; */
+    const sources = response.sources;
+    console.log(response);
 
-    const typed_sources = sources.sources.map((source: any, i: number) => {
+    const typed_sources = sources.map((source: any, i: number) => {
       const src: ISource = {
         website: source.website as IWebsite,
         safe: source.safe,
@@ -120,7 +116,7 @@
         article_snippet: source.article_snippet,
         title: source.title,
       };
-      if (source.date != "NO DATE") src.date = new Date(source.date);
+      if (source.date != "NO DATE" || source.date != "NO_DATE") src.date = new Date(source.date);
       return src;
     });
     const messages: Message[] = [
@@ -134,7 +130,7 @@
       },
     ];
     const res: IConversation = {
-      title: sources.keywords.join(","),
+      title: response.sentence,
       origin: JSON.parse(info.origin) as IWebsite,
       trust: index_to_trust[response.label],
       request_id: Date.now(),
@@ -142,9 +138,9 @@
       messages: messages.concat(typed_sources),
     };
     // console.log(sources);
-    let {history} = await chrome.storage.local.get({ history: []})
-    if(!history.some((conv: any) => conv.title==res.title)){
-      chrome.storage.local.set({ history: [res].concat(history)})
+    let { history } = await chrome.storage.local.get({ history: [] });
+    if (!history.some((conv: any) => conv.title == res.title)) {
+      chrome.storage.local.set({ history: [res].concat(history) });
     }
     return res;
   }
@@ -159,7 +155,13 @@
     <h1>Checking</h1>
   </section>
   {#await promise_conv}
-    Loading...
+    <img
+      src="../../public/loading.gif"
+      style="align-self: center;"
+      width="96"
+      alt=""
+      srcset=""
+    />
   {:then conversation}
     <Conversation convo={conversation} detail_view={true} />
   {:catch error}
