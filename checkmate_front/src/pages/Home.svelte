@@ -8,52 +8,7 @@
   let promise_history: Promise<IConversation[]> = fetch_history();
   let curr_convo: IConversation | null = null;
   async function fetch_history() {
-    let { history } = await chrome.storage.local.get({
-      history: [
-        {
-          title:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum quos voluptas dolorem quis ex veritatis debitis nobis necessitatibus mollitia excepturi vel ea itaque officiis iusto adipisci ipsa, nam odio perspiciatis!",
-          messages: [
-            {
-              content:
-                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum quos voluptas dolorem quis ex veritatis debitis nobis necessitatibus mollitia excepturi vel ea itaque officiis iusto adipisci ipsa, nam odio perspiciatis!",
-              from: "User",
-            },
-            {
-              content:
-                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum quos voluptas dolorem quis ex veritatis debitis nobis necessitatibus mollitia excepturi vel ea itaque officiis iusto adipisci ipsa, nam odio perspiciatis!",
-              from: "AI",
-            },
-            {
-              id: 1,
-              website: {
-                name: "Mediapart",
-                link: "https://www.mediapart.fr/journal/france/270324/emmanuel-macron-saupoudre-la-guyane-de-petites-annonces-distance-de-la-population",
-                favicon_link:
-                  "https://www.google.com/s2/favicons?domain=mediapart.fr&sz=32",
-              },
-              title:
-                "Emmanuel Macron saupoudre la Guyane de petites annonces, à distance de la population | Mediapart",
-              article_snippet:
-                "Sur la pêche, l’agriculture, l’orpaillage et l’évolution statutaire, Emmanuel Macron n’a pas rassuré une population globalement indifférente à des promesses qui ne résoudront pas les difficultés de l…",
-              image_preview_link:
-                "	https://pbs.twimg.com/card_img/1772903236879405056/uVQDcKXm?format=jpg&name=medium",
-              safe: true,
-            },
-          ],
-          trust: "Seems Legit",
-          request_id: Date.now(),
-          created_at: new Date(Date.now()),
-          origin: {
-            link: "https://twitter.com/home",
-            name: "Twitter",
-            favicon_link:
-              "https://www.google.com/s2/favicons?domain=twitter.com&sz=32",
-          },
-        },
-      ],
-    });
-    console.log(history);
+    let { history } = await chrome.storage.local.get({history: []});
     return history;
   }
 

@@ -5,7 +5,7 @@
   const LINK_MAX_LENGTH = 48;
   export let source: ISource
 </script>
-<a class="article" target="_blank" href={source.website.link}>
+<a class="article" style={source.safe ? "border-style: dotted;" : ""} target="_blank" href={source.website.link}>
   <article>
     {#if source.image_preview_link!="NO_PREVIEW"}
       <img src={source.image_preview_link} alt="">
