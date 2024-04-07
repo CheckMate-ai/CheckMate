@@ -3,6 +3,7 @@ a.article{
   font-size: 0.8rem;
   color: inherit;
   margin: 0px 10px;
+  max-width: 95%;
   border: 1px solid #95a5a6;
   border-radius: 7.5px;
   cursor: pointer;
@@ -27,6 +28,7 @@ article p {
   color: #7f8c8d;
 }
 span.title{
+  margin-top: 5px;
   font-size: 1rem;
   font-weight: 500;
 }
@@ -34,12 +36,8 @@ span.title{
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  margin: 0;
-}
-
-.link span{
-  max-width: 90%;
-  margin-bottom: 5px;
+  margin: 10px 0px;
+  justify-content: space-between;
 }
 
 article p{

@@ -142,7 +142,6 @@ open class FactCheckerAI() :
                 var jsonOutput = JSONObject()
                 jsonOutput.put("label", p.first)
                 jsonOutput.put("explanation", p.second)
-                jsonOutput.put("sources", sources)
                 jsonOutput.put("sentence", sentence)
                 return jsonOutput
         }

@@ -7,7 +7,7 @@
     "service_worker": "./src/background.ts"
   },
   "permissions": [
-    "storage", "contextMenus"
+    "storage", "contextMenus", "tabs"
   ],
   "icons": {
     "16": "public/icon-tiny.png",

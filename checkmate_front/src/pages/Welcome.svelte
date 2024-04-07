@@ -18,8 +18,7 @@
   <section>
     <img src="../../public/icon.svg" width="48" alt="" srcset="" />
     <h1>Bienvenue</h1>
-    <span>Fact-checker n'importe quelle information sur le Web grâce à l'IA</span
-    >
+    <span>Fact-checker n'importe quelle information sur le Web grâce à l'IA</span>
   </section>
   <div class="howto">
     <span>Comment utiliser:</span>
